@@ -47,6 +47,7 @@ let collapsedMap = {};
 let docRef = null;
 let db = null;
 let usingFallback = false;
+let hasAttemptedSeed = false;
 
 function showError(msg) {
   errorBanner.textContent = msg;
@@ -74,11 +75,16 @@ try {
         clearError();
         if (snap.exists()) {
           state = snap.data().categories || [];
-        } else {
+          render();
+        } else if (!hasAttemptedSeed) {
+          hasAttemptedSeed = true;
           state = STARTER_DATA;
-          setDoc(docRef, { categories: STARTER_DATA }).catch(() => {});
+          render();
+          setDoc(docRef, { categories: STARTER_DATA }).catch((e) => {
+            showError("Couldn't create the shared list. Check your Firestore rules.");
+            console.error(e);
+          });
         }
-        render();
       },
       (err) => {
         showError("Couldn't connect to the shared list. Check your Firebase setup.");
