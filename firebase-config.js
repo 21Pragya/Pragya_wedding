@@ -7,10 +7,11 @@
 // See README.md for the full walkthrough.
 
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyAi_Lv3ooioWQPVlSi9h1D_hxi3PgnkcJ0",
+  authDomain: "pragya-wedding.firebaseapp.com",
+  projectId: "pragya-wedding",
+  storageBucket: "pragya-wedding.firebasestorage.app",
+  messagingSenderId: "1040788738346",
+  appId: "1:1040788738346:web:81507e520780ddb570ce53",
+  measurementId: "G-3JR9F63RKP"
 };
